@@ -70,63 +70,167 @@ class _BottomTabScreenState extends State<BottomTabScreen> {
 
 
 
-/// Home Tab 
+// /// Home Tab 
+
+// class HomeTab extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(title: Text('🏠 Home')),
+//       body: Center(
+//   child: Column(
+//     mainAxisAlignment: MainAxisAlignment.center,
+//     children: [
+//       Text(
+//         'Welcome',
+//         style: TextStyle(
+//           fontSize: 24,
+//           fontWeight: FontWeight.bold,
+//           color: Colors.teal,
+//         ),
+//       ),
+//       SizedBox(height: 16),
+//       Padding(
+//         padding: EdgeInsets.symmetric(horizontal: 24.0),
+//         child: Text(
+//           'Your one-stop solution for managing elderly care with compassion. Stay connected, organized, and supportive for your loved ones—all in one app.',
+//           textAlign: TextAlign.center,
+//           style: TextStyle(
+//             fontSize: 16,
+//             color: Colors.black87,
+//           ),
+//         ),
+//       ),
+//     ],
+//   ),
+// ),
+
+//     );
+//   }
+// }
+
+
+
+
+/// Home Tab
+
 
 class HomeTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('🏠 Home')),
-      body: Center(
-  child: Column(
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: [
-      Text(
-        'Welcome',
-        style: TextStyle(
-          fontSize: 24,
-          fontWeight: FontWeight.bold,
-          color: Colors.teal,
+      appBar: AppBar(
+        title: Text('🏠 Home'),
+        backgroundColor: Colors.teal,
+        centerTitle: true,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(24.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(Icons.volunteer_activism, size: 80, color: Colors.teal),
+            SizedBox(height: 24),
+            Text(
+              'Welcome to ElderNest',
+              style: TextStyle(
+                fontSize: 26,
+                fontWeight: FontWeight.bold,
+                color: Colors.teal.shade700,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(height: 16),
+            Text(
+              'Your one-stop solution for managing elderly care with compassion. Stay connected, organized, and supportive for your loved ones—all in one app.',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.black87,
+              ),
+            ),
+            SizedBox(height: 30),
+            ElevatedButton.icon(
+              onPressed: () {
+                // Navigate or show a message
+              },
+              icon: Icon(Icons.medical_services),
+              label: Text("View Care Plans"),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.teal,
+                padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
-      SizedBox(height: 16),
-      Padding(
-        padding: EdgeInsets.symmetric(horizontal: 24.0),
-        child: Text(
-          'Your one-stop solution for managing elderly care with compassion. Stay connected, organized, and supportive for your loved ones—all in one app.',
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: 16,
-            color: Colors.black87,
-          ),
-        ),
-      ),
-    ],
-  ),
-),
-
     );
   }
 }
 
 
-
 /// Medicine Tab
+
 
 class MedicineTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('💊 Medicine')),
-      body: Center(
-        child: Text(
-          'Manage your medicines here.',
-          style: TextStyle(fontSize: 24),
+      appBar: AppBar(
+        title: Text('💊 Medicine'),
+        backgroundColor: Colors.teal,
+        centerTitle: true,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(24.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(Icons.medication_liquid, size: 80, color: Colors.teal),
+            SizedBox(height: 24),
+            Text(
+              'Medicine Management',
+              style: TextStyle(
+                fontSize: 26,
+                fontWeight: FontWeight.bold,
+                color: Colors.teal.shade700,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(height: 16),
+            Text(
+              'Keep track of your prescriptions, doses, and medicine reminders to stay on top of your health needs.',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.black87,
+              ),
+            ),
+            SizedBox(height: 30),
+            ElevatedButton.icon(
+              onPressed: () {
+                // Navigate to add/view medicines page
+              },
+              icon: Icon(Icons.add_alarm),
+              label: Text("Set Reminder"),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.teal,
+                padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
   }
 }
+
 
 
 
