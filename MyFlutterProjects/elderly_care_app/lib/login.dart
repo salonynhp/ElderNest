@@ -16,7 +16,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController passwordController = TextEditingController();
 
   Future<void> loginUser() async {
-    final url = Uri.parse('http://10.174.24.130:3000/api/userLogin');
+    final url = Uri.parse('https://eldernest.onrender.com/api/userLogin');
 
     try {
       final response = await http.post(

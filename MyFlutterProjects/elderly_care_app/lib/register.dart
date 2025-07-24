@@ -25,7 +25,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   Future<void> registerUser() async {
     setState(() => isLoading = true);
 
-    final url = Uri.parse('http://10.174.24.130:3000/api/userRegister');
+    final url = Uri.parse('https://eldernest.onrender.com/userRegister');
     
     print("Sending POST request...");
     print("Name: ${nameController.text}, Email: ${emailController.text}");
