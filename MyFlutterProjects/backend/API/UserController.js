@@ -2,6 +2,10 @@ const express = require('express');
 const bcrypt = require("bcryptjs");
 const { dbConnection } = require("../src/config/dbConnection"); // adjust path as needed
 
+
+
+const User = require("../models/user");
+
 const router = express.Router();
 
 // Sample route
@@ -89,6 +93,59 @@ router.post("/userRegister", async (req, res) => {
     });
   }
 });
+
+
+// User login
+
+
+router.post('/userLogin', async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    console.log("Login request received for email:", email);
+
+    const db = await dbConnection();
+    const users = db.collection("User");
+
+    const user = await users.findOne({ email });
+    if (!user) {
+      console.log("User not found");
+      return res.status(404).json({ status: 0, message: "User not found" });
+    }
+
+    console.log("Entered password:", password);
+    console.log("Stored hash:", user.password);
+
+    //for password compare
+    const isMatch = await bcrypt.compare(password, user.password);
+
+    console.log("Password match result:", isMatch);
+
+    if (!isMatch) {
+      return res.status(401).json({ status: 0, message: "Incorrect password" });
+    }
+
+    res.status(200).json({
+      status: 1,
+      message: "Login successful",
+      data: {
+        _id: user._id,
+        name: user.name,
+        email: user.email,
+        uniqueCode: user.uniqueCode,
+      }
+    });
+  } catch (error) {
+    console.error("Login Error:", error);
+    res.status(500).json({ status: 0, message: "Internal server error" });
+  }
+});
+
+
+
+
+
+
+
 
 module.exports = router;
 
